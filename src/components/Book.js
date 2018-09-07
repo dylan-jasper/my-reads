@@ -1,7 +1,8 @@
 import React from "react";
 
 const Book = props => {
-  const { book } = props;
+  const { book, moveBook } = props;
+
   return (
     <div className="book">
       <div className="book-top">
@@ -14,7 +15,11 @@ const Book = props => {
           }}
         />
         <div className="book-shelf-changer">
-          <select>
+          <select
+            onChange={e => {
+              return moveBook(book, e.target.value);
+            }}
+          >
             <option value="move" disabled>
               Move to...
             </option>

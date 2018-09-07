@@ -5,8 +5,7 @@ class MainPage extends Component {
   state = {};
 
   render() {
-    const { books } = this.props;
-
+    const { books, moveBook } = this.props;
     return (
       <div className="app">
         <div className="list-books">
@@ -26,7 +25,7 @@ class MainPage extends Component {
                       .map(b => {
                         return (
                           <li key={b.id}>
-                            <Book book={b} />
+                            <Book book={b} moveBook={moveBook} />
                           </li>
                         );
                       })}
@@ -44,7 +43,7 @@ class MainPage extends Component {
                       .map(b => {
                         return (
                           <li key={b.id}>
-                            <Book book={b} />
+                            <Book book={b} moveBook={moveBook} />
                           </li>
                         );
                       })}
@@ -62,7 +61,7 @@ class MainPage extends Component {
                       .map(b => {
                         return (
                           <li key={b.id}>
-                            <Book book={b} />
+                            <Book book={b} moveBook={moveBook} />
                           </li>
                         );
                       })}
