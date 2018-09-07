@@ -3,6 +3,7 @@ import Book from "./Book.js";
 
 class MainPage extends Component {
   state = {};
+
   render() {
     const { books } = this.props;
 
@@ -25,7 +26,7 @@ class MainPage extends Component {
                       .map(b => {
                         return (
                           <li key={b.id}>
-                            <Book />
+                            <Book book={b} />
                           </li>
                         );
                       })}
@@ -43,7 +44,7 @@ class MainPage extends Component {
                       .map(b => {
                         return (
                           <li key={b.id}>
-                            <Book />
+                            <Book book={b} />
                           </li>
                         );
                       })}
@@ -61,7 +62,7 @@ class MainPage extends Component {
                       .map(b => {
                         return (
                           <li key={b.id}>
-                            <Book />
+                            <Book book={b} />
                           </li>
                         );
                       })}
