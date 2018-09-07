@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
 class SearchPage extends Component {
-  state = {};
+  state = {
+    query: ""
+  };
   render() {
     return (
       <div className="search-books">
