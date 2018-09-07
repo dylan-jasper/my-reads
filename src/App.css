@@ -163,6 +163,8 @@ body,
   height: 100%;
   opacity: 0;
   cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /* book cover */

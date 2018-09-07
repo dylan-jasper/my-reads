@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import Book from "./Book.js";
+import PropTypes from "prop-types";
 
 class MainPage extends Component {
   state = {};
 
+  static propTypes = {
+    books: PropTypes.array.isRequired,
+    moveBook: PropTypes.func.isRequired
+  };
   render() {
     const { books, moveBook } = this.props;
     return (
       <div className="app">
         <div className="list-books">
           <div className="list-books-title">
-            <h1>MyReads</h1>
+            <h1>My Reads</h1>
           </div>
           <div className="list-books-content">
             <div>
@@ -25,7 +30,11 @@ class MainPage extends Component {
                       .map(b => {
                         return (
                           <li key={b.id}>
-                            <Book book={b} moveBook={moveBook} />
+                            <Book
+                              book={b}
+                              moveBook={moveBook}
+                              currentShelf={b.shelf}
+                            />
                           </li>
                         );
                       })}
@@ -43,7 +52,11 @@ class MainPage extends Component {
                       .map(b => {
                         return (
                           <li key={b.id}>
-                            <Book book={b} moveBook={moveBook} />
+                            <Book
+                              book={b}
+                              moveBook={moveBook}
+                              currentShelf={b.shelf}
+                            />
                           </li>
                         );
                       })}
@@ -61,7 +74,11 @@ class MainPage extends Component {
                       .map(b => {
                         return (
                           <li key={b.id}>
-                            <Book book={b} moveBook={moveBook} />
+                            <Book
+                              book={b}
+                              moveBook={moveBook}
+                              currentShelf={b.shelf}
+                            />
                           </li>
                         );
                       })}

@@ -1,9 +1,15 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class SearchPage extends Component {
   state = {
     query: ""
   };
+
+  updateQuery = q => {
+    this.setState({ query: q.trim() });
+  };
+
   render() {
     return (
       <div className="search-books">

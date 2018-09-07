@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Book = props => {
-  const { book, moveBook } = props;
-
+  const { book, moveBook, currentShelf } = props;
+  console.log(props);
   return (
     <div className="book">
       <div className="book-top">
@@ -19,6 +20,7 @@ const Book = props => {
             onChange={e => {
               return moveBook(book, e.target.value);
             }}
+            value={currentShelf}
           >
             <option value="move" disabled>
               Move to...
@@ -31,9 +33,19 @@ const Book = props => {
         </div>
       </div>
       <div className="book-title">{book.title}</div>
-      <div className="book-authors">{book.authors}</div>
+      <div className="book-authors">
+        {book.authors === 1
+          ? book.authors
+          : book.authors.map((a, i) => <span key={i}>{a} </span>)}
+      </div>
     </div>
   );
+};
+
+Book.propTypes = {
+  book: PropTypes.object.isRequired,
+  moveBook: PropTypes.func.isRequired,
+  currentShelf: PropTypes.string.isRequired
 };
 
 export default Book;
