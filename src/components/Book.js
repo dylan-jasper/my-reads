@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Book = props => {
   const { book, moveBook, currentShelf } = props;
-  console.log(props);
+
   return (
     <div className="book">
       <div className="book-top">
@@ -12,7 +12,9 @@ const Book = props => {
           style={{
             width: 128,
             height: 193,
-            backgroundImage: `url(${book.imageLinks.smallThumbnail})`
+            backgroundImage: book.imageLinks
+              ? `url(${book.imageLinks.smallThumbnail})`
+              : ""
           }}
         />
         <div className="book-shelf-changer">
@@ -33,11 +35,7 @@ const Book = props => {
         </div>
       </div>
       <div className="book-title">{book.title}</div>
-      <div className="book-authors">
-        {book.authors === 1
-          ? book.authors
-          : book.authors.map((a, i) => <span key={i}>{a} </span>)}
-      </div>
+      <div className="book-authors">{book.authors}</div>
     </div>
   );
 };
