@@ -34,7 +34,6 @@ class SearchPage extends Component {
   };
 
   render() {
-    const { books } = this.props;
     const { searchedBooks } = this.state;
     return (
       <div className="search-books">
@@ -63,7 +62,7 @@ class SearchPage extends Component {
             {searchedBooks.map(searchedBook => {
               return (
                 <li key={searchedBook.id}>
-                  <Book book={searchedBook} />
+                  <Book book={searchedBook} moveBook={this.props.moveBook} />
                 </li>
               );
             })}

@@ -19,9 +19,7 @@ const Book = props => {
         />
         <div className="book-shelf-changer">
           <select
-            onChange={e => {
-              return moveBook(book, e.target.value);
-            }}
+            onChange={e => moveBook(book, e.target.value)}
             value={currentShelf}
           >
             <option value="move" disabled>
@@ -42,8 +40,8 @@ const Book = props => {
 
 Book.propTypes = {
   book: PropTypes.object.isRequired,
-  moveBook: PropTypes.func.isRequired,
-  currentShelf: PropTypes.string.isRequired
+  moveBook: PropTypes.func,
+  currentShelf: PropTypes.string
 };
 
 export default Book;
