@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 const Book = props => {
   const { book, moveBook, currentShelf } = props;
-
   return (
     <div className="book">
       <div className="book-top">
@@ -33,7 +32,16 @@ const Book = props => {
         </div>
       </div>
       <div className="book-title">{book.title}</div>
-      <div className="book-authors">{book.authors}</div>
+      <div className="book-authors">
+        {book.authors
+          ? book.authors.map(author => (
+              <span>
+                {author}
+                <br />
+              </span>
+            ))
+          : ""}
+      </div>
     </div>
   );
 };
