@@ -22,7 +22,11 @@ class SearchPage extends Component {
   updateSearchedBooks = query => {
     if (query) {
       BooksAPI.search(query).then(searched => {
-        this.setState({ searchedBooks: searched });
+        if (searched.error) {
+          this.setState({ searchedBooks: [] });
+        } else {
+          this.setState({ searchedBooks: searched });
+        }
       });
     } else {
       this.setState({ searchedBooks: [] });
