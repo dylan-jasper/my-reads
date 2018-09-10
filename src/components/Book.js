@@ -34,8 +34,8 @@ const Book = props => {
       <div className="book-title">{book.title}</div>
       <div className="book-authors">
         {book.authors
-          ? book.authors.map(author => (
-              <span>
+          ? book.authors.map((author, i) => (
+              <span key={i}>
                 {author}
                 <br />
               </span>
