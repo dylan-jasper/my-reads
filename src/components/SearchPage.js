@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Book from "./Book";
-import escapeStringRegexp from "escape-string-regexp";
 import * as BooksAPI from "../BooksAPI";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";

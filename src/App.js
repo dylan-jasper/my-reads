@@ -1,9 +1,9 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import * as BooksAPI from "./BooksAPI";
-import "./App.css";
 import MainPage from "./components/MainPage";
 import SearchPage from "./components/SearchPage";
+import "./App.css";
 
 class BooksApp extends React.Component {
   state = {
@@ -17,8 +17,12 @@ class BooksApp extends React.Component {
   }
 
   moveBook = (book, shelf) => {
-    BooksAPI.update(book, shelf);
-    this.componentDidMount();
+    BooksAPI.update(book, shelf).then(() => {
+      book.shelf = shelf;
+      this.setState(state => ({
+        books: state.books.filter(b => b.id !== book.id).concat(book)
+      }));
+    });
   };
 
   render() {
